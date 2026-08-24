@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NKV Boutique — Catálogo Digital</title>
-  <meta name="description" content="Explora los catálogos digitales exclusivos de Bolsos y Calzado de NKV Boutique.">
+  <meta name="description" content="Explora los catálogos digitales exclusivos de Calzado y Bolsos de NKV Boutique.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -121,7 +121,7 @@
       gap: 14px;
     }
 
-    /* TAB SELECTOR */
+    /* TAB SELECTOR (1° Calzado NKV, 2° Bolsos NKV) */
     .catalog-selector {
       display: flex;
       background: #ffffff;
@@ -437,15 +437,15 @@
 
   <!-- MAIN -->
   <main>
-    <!-- SELECTOR DE CATÁLOGO -->
+    <!-- SELECTOR DE CATÁLOGO: 1° Calzado NKV, 2° Bolsos NKV -->
     <div class="catalog-selector" role="tablist">
-      <button id="tab-bolsos" class="tab-btn active" onclick="switchCatalog('bolsos')" role="tab" aria-selected="true">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12z"/></svg>
-        Bolsos SP
-      </button>
-      <button id="tab-calzado" class="tab-btn" onclick="switchCatalog('calzado')" role="tab" aria-selected="false">
+      <button id="tab-calzado" class="tab-btn active" onclick="switchCatalog('calzado')" role="tab" aria-selected="true">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M21 16.5c0-.83-.67-1.5-1.5-1.5H18V9c0-1.1-.9-2-2-2h-3c-1.1 0-2 .9-2 2v1.5H8.5C5.46 10.5 3 12.96 3 16v3h18v-2.5zm-5-7.5h2v6h-2V9zM5 16c0-1.93 1.57-3.5 3.5-3.5H11v4.5H5V16z"/></svg>
-        Calzado SP
+        Calzado NKV
+      </button>
+      <button id="tab-bolsos" class="tab-btn" onclick="switchCatalog('bolsos')" role="tab" aria-selected="false">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12z"/></svg>
+        Bolsos NKV
       </button>
     </div>
 
@@ -453,10 +453,10 @@
     <div class="viewer-wrapper">
       <div class="viewer-header">
         <div class="viewer-title" id="current-title">
-          <span>👜</span> Catálogo Bolsos SP
+          <span>👠</span> Catálogo Calzado NKV
         </div>
         <div class="viewer-actions">
-          <a id="btn-fullscreen" class="action-link-btn" href="#" target="_blank" rel="noopener noreferrer">
+          <a id="btn-fullscreen" class="action-link-btn" href="https://heyzine.com/flip-book/9ec6be30a1.html" target="_blank" rel="noopener noreferrer">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
             Pantalla Completa
           </a>
@@ -470,7 +470,7 @@
         </div>
         <iframe 
           id="flipbook-frame" 
-          src="https://heyzine.com/flip-book/980169fc03.html" 
+          src="https://heyzine.com/flip-book/9ec6be30a1.html" 
           allowfullscreen="true" 
           allow="clipboard-write; autoplay; fullscreen"
           onload="hideSpinner()">
@@ -515,24 +515,24 @@
     // ==========================================
     const CONFIG = {
       catalogs: {
-        bolsos: {
-          title: "Catálogo Bolsos SP",
-          icon: "👜",
-          url: "https://heyzine.com/flip-book/980169fc03.html",
-          waMessage: "Hola NKV Boutique, estoy viendo el catálogo digital de Bolsos y me gustaría consultar disponibilidad y precios de una referencia."
-        },
         calzado: {
-          title: "Catálogo Calzado SP",
+          title: "Catálogo Calzado NKV",
           icon: "👠",
           url: "https://heyzine.com/flip-book/9ec6be30a1.html",
           waMessage: "Hola NKV Boutique, estoy viendo el catálogo digital de Calzado y me gustaría consultar disponibilidad y precios de una referencia."
+        },
+        bolsos: {
+          title: "Catálogo Bolsos NKV",
+          icon: "👜",
+          url: "https://heyzine.com/flip-book/980169fc03.html",
+          waMessage: "Hola NKV Boutique, estoy viendo el catálogo digital de Bolsos y me gustaría consultar disponibilidad y precios de una referencia."
         }
       },
       whatsappNumber: "573183931763",
       instagramUrl: "https://www.instagram.com/nkv_boutique/"
     };
 
-    let activeCatalog = "bolsos";
+    let activeCatalog = "calzado";
 
     function handleLogoFallback(imgEl) {
       if (imgEl.src.includes('logo.png')) {
@@ -604,9 +604,9 @@
       updateWhatsAppLinks();
     }
 
-    // Inicialización al cargar
+    // Inicialización al cargar con Calzado como catálogo predeterminado
     document.addEventListener('DOMContentLoaded', () => {
-      switchCatalog('bolsos');
+      switchCatalog('calzado');
     });
   </script>
 </body>
