@@ -23,10 +23,7 @@
       --whatsapp-hover: #20ba5a;
       --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       --shadow-soft: 0 4px 20px rgba(183, 122, 100, 0.08);
-      --shadow-hover: 0 8px 30px rgba(183, 122, 100, 0.16);
-      --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 20px;
     }
 
     * {
@@ -51,12 +48,12 @@
     header {
       width: 100%;
       max-width: 1100px;
-      padding: 16px 16px 10px;
+      padding: 18px 16px 10px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
 
     .brand-logo-container {
@@ -64,15 +61,17 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      max-width: 260px;
-      min-height: 60px;
+      max-width: 240px;
+      min-height: 70px;
     }
 
     .brand-logo {
-      width: 100%;
-      max-height: 80px;
+      max-width: 220px;
+      max-height: 85px;
+      width: auto;
+      height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.04));
+      filter: drop-shadow(0 2px 10px rgba(183, 122, 100, 0.1));
     }
 
     .brand-text-logo {
@@ -107,7 +106,7 @@
       letter-spacing: 2.5px;
       color: var(--primary-color);
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     /* MAIN CONTAINER */
@@ -427,7 +426,7 @@
   <!-- HEADER -->
   <header>
     <div class="brand-logo-container">
-      <img src="Logo_NKV_B.png" alt="NKV Boutique" class="brand-logo" id="brand-logo-img">
+      <img src="logo.png" alt="NKV Boutique" class="brand-logo" id="brand-logo-img" onerror="handleLogoFallback(this)">
       <div class="brand-text-logo" id="brand-text-fallback" style="display: none;">
         <span class="brand-nkv">NKV</span>
         <span class="brand-boutique">BOUTIQUE</span>
@@ -535,13 +534,14 @@
 
     let activeCatalog = "bolsos";
 
-    const logoImg = document.getElementById('brand-logo-img');
-    const logoFallback = document.getElementById('brand-text-fallback');
-    if (logoImg) {
-      logoImg.onerror = () => {
-        logoImg.style.display = 'none';
+    function handleLogoFallback(imgEl) {
+      if (imgEl.src.includes('logo.png')) {
+        imgEl.src = 'Logo_NKV_B.png';
+      } else {
+        imgEl.style.display = 'none';
+        const logoFallback = document.getElementById('brand-text-fallback');
         if (logoFallback) logoFallback.style.display = 'flex';
-      };
+      }
     }
 
     function hideSpinner() {
