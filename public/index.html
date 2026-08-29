@@ -347,6 +347,24 @@
     .floating-btn.wa { background: var(--whatsapp-color); }
     .floating-btn.ig { background: var(--instagram-gradient); }
 
+    /* PROMOTIONAL BANNER */
+    .promotional-banner {
+      width: 100%;
+      max-width: 100%;
+      margin: 16px 0 20px 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      display: block;
+    }
+
+    .promotional-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
     /* RESPONSIVE DESIGN */
     @media (max-width: 600px) {
       header {
@@ -400,6 +418,11 @@
 
   <!-- MAIN -->
   <main>
+    <!-- BANNER PROMOCIONAL -->
+    <div class="promotional-banner">
+      <img src="promotional-banner.png" alt="Promociones Exclusivas NKV Boutique - Descuentos hasta 40%" loading="lazy">
+    </div>
+
     <!-- SELECTOR DE CATÁLOGO -->
     <div class="catalog-selector" role="tablist">
       <button id="tab-calzado" class="tab-btn active" onclick="switchCatalog('calzado')" role="tab" aria-selected="true">
