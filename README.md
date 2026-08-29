@@ -12,14 +12,19 @@ nkv-catalogo/
 │   └── workflows/
 │       └── deploy.yml        # Pipeline de despliegue automático a Fly.io
 ├── public/
-│   ├── index.html            # Aplicación web responsiva con selector y visores
-│   ├── Logo_NKV_B.png        # Logo oficial de NKV Boutique
-│   ├── qr_code.png           # Código QR generado para impresión / redes
-│   └── qr_code.svg           # Código QR en formato vectorial
+│   ├── index.html            # Vista principal del sitio y estructura HTML
+│   ├── css/
+│   │   └── styles.css        # Estilos globales y responsive del catálogo
+│   ├── js/
+│   │   └── app.js            # Lógica del catálogo, tabs y WhatsApp
+│   ├── assets/
+│   │   └── images/           # Imágenes y activos del sitio
+│   └── index.html            # Entrada principal del frontend
 ├── Dockerfile                # Imagen ligera basada en Nginx Alpine
 ├── nginx.conf                # Configuración de Nginx (puerto 8080, compresión gzip, headers)
 ├── fly.toml                  # Configuración de la aplicación en Fly.io
-└── README.md                 # Documentación del proyecto
+├── README.md                 # Documentación del proyecto
+└── .gitignore                # Archivos ignorados por Git
 ```
 
 ---
