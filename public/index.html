@@ -433,7 +433,7 @@
           src="https://heyzine.com/flip-book/74216951e6.html" 
           scrolling="no"
           allowfullscreen
-          allow="accelerometer; ambient-light-sensor; autoplay; camera; clipboard-write; display-capture; document-domain; encrypted-media; fullscreen; geolocation; gyroscope; magnetometer; microphone; midi; payment; picture-in-picture; publickey-credentials-get; usb; xr-spatial-tracking">
+          allow="autoplay; fullscreen; clipboard-write">
         </iframe>
       </div>
     </div>
@@ -550,18 +550,7 @@
 
       // Actualizar enlace de pantalla completa
       const fsBtn = document.getElementById('btn-fullscreen');
-      if (fsBtn) {
-        fsBtn.href = target.url;
-        fsBtn.onclick = function(e) {
-          const iframe = document.getElementById('flipbook-frame');
-          if (iframe && iframe.requestFullscreen) {
-            e.preventDefault();
-            iframe.requestFullscreen().catch(err => {
-              window.open(target.url, '_blank');
-            });
-          }
-        };
-      }
+      if (fsBtn) fsBtn.href = target.url;
 
       // Actualizar Iframe
       const iframe = document.getElementById('flipbook-frame');
