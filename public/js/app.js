@@ -3,7 +3,7 @@ const CONFIG = {
     calzado: {
       title: "Catálogo Calzado NKV",
       icon: "👠",
-      url: "https://heyzine.com/flip-book/74216951e6.html",
+      url: "https://heyzine.com/flip-book/081e215873.html",
       waMessage: "Hola NKV Boutique, estoy viendo el catálogo de Calzado y me gustaría consultar disponibilidad y precios de una referencia."
     },
     bolsos: {
@@ -20,7 +20,7 @@ const CONFIG = {
 let activeCatalog = "calzado";
 
 function handleLogoFallback(imgEl) {
-  if (imgEl.src.includes('logo.png')) {
+  if (imgEl.src.includes('logo.webp')) {
     imgEl.src = 'assets/images/Logo_NKV_B.png';
   } else {
     imgEl.style.display = 'none';

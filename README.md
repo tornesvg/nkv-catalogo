@@ -8,23 +8,22 @@ Minipágina web responsiva y optimizada para móviles para visualizar los catál
 
 ```text
 nkv-catalogo/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml        # Pipeline de despliegue automático a Fly.io
+├── .github/workflows/deploy.yml   # Despliegue automático a Fly.io al hacer push a main
 ├── public/
-│   ├── index.html            # Vista principal del sitio y estructura HTML
-│   ├── css/
-│   │   └── styles.css        # Estilos globales y responsive del catálogo
-│   ├── js/
-│   │   └── app.js            # Lógica del catálogo, tabs y WhatsApp
-│   ├── assets/
-│   │   └── images/           # Imágenes y activos del sitio
-│   └── index.html            # Entrada principal del frontend
-├── Dockerfile                # Imagen ligera basada en Nginx Alpine
-├── nginx.conf                # Configuración de Nginx (puerto 8080, compresión gzip, headers)
-├── fly.toml                  # Configuración de la aplicación en Fly.io
-├── README.md                 # Documentación del proyecto
-└── .gitignore                # Archivos ignorados por Git
+│   ├── index.html                 # Estructura de la página + metadatos para compartir (Open Graph)
+│   ├── css/styles.css             # Estilos globales y responsive
+│   ├── js/app.js                  # CONFIG (catálogos, WhatsApp, Instagram), tabs y enlaces
+│   └── assets/images/
+│       ├── logo.webp              # Logo del footer (optimizado)
+│       ├── promotional-banner.webp
+│       ├── icon-32/180/512.png    # Favicon y apple-touch-icon
+│       ├── og-image.jpg           # Vista previa al compartir el link
+│       ├── Logo_NKV_B.png         # Respaldo si falla logo.webp
+│       └── qr_code.*              # QR del catálogo
+├── Dockerfile                     # Nginx Alpine
+├── nginx.conf                     # Puerto 8080, gzip, headers y caché
+├── fly.toml                       # Configuración de Fly.io
+└── README.md
 ```
 
 ---
@@ -101,7 +100,7 @@ GitHub Actions compilará y desplegará automáticamente la nueva versión en Fl
 4. **Resultado:** El enlace y el código QR se mantienen idénticos, y los clientes verán los nuevos productos al instante.
 
 ### Opción 2: Cambiar la URL en el código
-Si creas un nuevo catálogo con un enlace diferente, solo debes editar el bloque `CONFIG` al inicio del script en `public/index.html`:
+Si creas un nuevo catálogo con un enlace diferente, solo debes editar el bloque `CONFIG` al inicio de `public/js/app.js`:
 
 ```javascript
 const CONFIG = {
@@ -117,3 +116,12 @@ const CONFIG = {
 };
 ```
 Guardas, haces `git push origin main` y se publicará automáticamente.
+
+---
+
+## 🖼️ Imágenes y caché
+
+- **HTML:** nunca se cachea (`no-cache`), los cambios se ven al instante.
+- **CSS/JS:** caché de 1 hora con revalidación.
+- **Imágenes:** caché de 7 días. **Si reemplazas una imagen, súbela con un nombre nuevo** (ej. `promotional-banner-2.webp`) y actualiza `index.html`; si no, los clientes que ya visitaron verán la anterior hasta una semana.
+- Usa **WebP** y tamaños razonables (banner ≤ 1600 px de ancho, logo ≤ 1000 px). Los originales pesados viven fuera del repo, en `../originales-pesados/`.
